@@ -24,7 +24,7 @@ TEST_CASE("Type decuction examples", "[deduction]")
   // A basic example:
   int one = 1;
   one ++;
-  CHECK((one == 2));  
+  CHECK((one == 2));  //vasiki pliroforia
 
   // classic integer case (by value case)
   // std::is_same<typename T, typename U> if T and U name the same type with the
@@ -45,7 +45,7 @@ TEST_CASE("Type decuction examples", "[deduction]")
   typedef std::map<std::pair<unsigned long, std::string>, unsigned long> SomeMap;
   SomeMap some_map{{{2, "foo"}, 3}, {{3, "bar"}, 5}};
   auto itr = some_map.find(std::make_pair(2,"foo"));
-  CHECK((std::is_same<decltype(itr), void>::value));
+  CHECK((std::is_same<decltype(itr),SomeMap::iterator>::value));
   auto first_element = itr->first;
   CHECK((std::is_same<decltype(first_element), SomeMap::key_type>::value));
 
